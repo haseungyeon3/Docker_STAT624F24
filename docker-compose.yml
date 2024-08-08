@@ -33,7 +33,7 @@ services:
       - postgres
   pynb:
     container_name: pynb_container
-    image: seungyeonha3/s624:pyn1.1
+    image: seungyeonha3/s624:pyn1.2
     user: root
     restart: always
     volumes:
