@@ -1,0 +1,24 @@
+FROM postgres:15.4 as dumper
+LABEL maintainer="ha.shawn@tamu.edu"
+LABEL version="1.2"
+LABEL description="PostgresSQLDB for Stat624"
+
+RUN ["sed", "-i", "s/exec \"$@\"/echo \"skipping...\"/", "/usr/local/bin/docker-entrypoint.sh"]
+
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=stat1234
+ENV PGDATA=/data 
+ENV POSTGRES_db=sqlda
+
+COPY datadump.sql /docker-entrypoint-initdb.d/
+ 
+RUN chown -R postgres:postgres /docker-entrypoint-initdb.d/
+
+RUN ["/usr/local/bin/docker-entrypoint.sh", "postgres"]
+
+# final build stage
+FROM postgres:15.4
+
+COPY --from=dumper /data $PGDATA
+
+
