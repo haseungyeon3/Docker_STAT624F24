@@ -1,5 +1,5 @@
 FROM python:3.11.7-slim
-LABEL maintainer="shawn ha"
+LABEL maintainer="Scott A. Bruce <sabruce@tamu.edu>"
 LABEL version="pyn1.1"
 LABEL description="Python Jupyter notebook development environment"
 
