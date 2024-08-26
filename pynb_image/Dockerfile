@@ -9,7 +9,7 @@ RUN apt-get install -y build-essential libpq-dev
 
 RUN pip install --upgrade pip
 
-RUN pip install numpy==1.26.3  pandas==2.2.0 seaborn==0.13.2 jupyter==1.0.0 scikit-learn==1.4.0 SQLAlchemy==1.4.15 psycopg2==2.9.9 statsmodels==0.14.1 dask[complete]==2024.1.1 graphviz==0.20.1 dask-ml==2023.3.24
+RUN pip install numpy==1.26.3  pandas==2.2.0 seaborn==0.13.2 jupyter==1.0.0 scikit-learn==1.4.0 SQLAlchemy==2.0.25 psycopg2==2.9.9 statsmodels==0.14.1 dask[complete]==2024.1.1 graphviz==0.20.1 dask-ml==2023.3.24
 
 WORKDIR /home/notebooks/
 
